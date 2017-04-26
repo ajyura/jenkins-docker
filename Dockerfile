@@ -1,6 +1,8 @@
 FROM jenkins
 
 # first stab at passing through plugins and using install-plugins.sh to dl & install
+EXPOSE 443
+
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')
 # RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
