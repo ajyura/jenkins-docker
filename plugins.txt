@@ -94,7 +94,6 @@ pipeline-stage-view:latest
 workflow-scm-step:latest
 workflow-cps-global-lib:latest
 pipeline-stage-step:latest
-pipeline-stage-view:latest
 workflow-step-api:latest
 workflow-support:latest
 plain-credentials:latest
