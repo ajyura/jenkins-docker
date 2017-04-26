@@ -88,7 +88,6 @@ workflow-cps:latest
 pipeline-input-step:latest
 workflow-job:latest
 pipeline-milestone-step:latest
-pipeline-model-definition:latest
 workflow-multibranch:latest
 workflow-durable-task-step:latest
 pipeline-stage-view:latest
