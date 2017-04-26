@@ -1,7 +1,7 @@
 FROM jenkins
 
 COPY plugins.txt /plugins.txt
-RUN /usr/local/bin/plugins.sh /plugins.txt
+RUN /usr/local/bin/install-plugins.sh /plugins.txt
 
 # enable jenkins cli
 # COPY config/jenkins.properties /usr/share/jenkins/ref/
