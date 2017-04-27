@@ -209,4 +209,8 @@ main() {
     START=1
 }
 
+if [[ $START=1 ]]; then
+    exit 
+fi
+
 main "$@"
