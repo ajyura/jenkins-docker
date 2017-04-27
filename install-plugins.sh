@@ -208,3 +208,5 @@ main() {
 }
 
 main "$@"
+
+START=1
