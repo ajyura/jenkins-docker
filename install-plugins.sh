@@ -24,16 +24,17 @@ download() {
     local plugin originalPlugin version lock ignoreLockFile
     plugin="$1"
     version="${2:-latest}"
+    plugin2="$3"
     ignoreLockFile="${3:-}"
     lock="$(getLockFile "$plugin")"
 
     if [[ $ignoreLockFile ]] || mkdir "$lock" &>/dev/null; then
-        if ! doDownload "$plugin" "$version" "$plugin"; then
+        if ! doDownload "$plugin" "$version" "$plugin2"; then
             # some plugin don't follow the rules about artifact ID
             # typically: docker-plugin
             originalPlugin="$plugin"
             plugin="${plugin}-plugin"
-            if ! doDownload "$plugin" "$version" "$plugin"; then
+            if ! doDownload "$plugin" "$version" "$plugin2"; then
                 echo "Failed to download plugin: $originalPlugin or $plugin" >&2
                 echo "Not downloaded: ${originalPlugin}" >> "$FAILED"
                 return 1
@@ -183,7 +184,7 @@ main() {
             plugin="${plugin%%:*}"
         fi
 
-        download "$plugin" "$version" "true" &
+        download "$plugin" "$version" "$plugin" "true" &
     done
     wait
 
