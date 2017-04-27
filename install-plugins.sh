@@ -1,5 +1,6 @@
 #!/bin/bash -eu
 
+echo 'this is actually running the correct script'
 # Resolve dependencies and download plugins given on the command line
 #
 # FROM jenkins
