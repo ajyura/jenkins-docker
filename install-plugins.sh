@@ -68,7 +68,7 @@ doDownload() {
     JENKINS_UC_DOWNLOAD=${JENKINS_UC_DOWNLOAD:-"$JENKINS_UC/download"}
 
     # url="$JENKINS_UC_DOWNLOAD/plugins/$plugin/$version/$plugin2.hpi"
-    url="https://updates.jenkins.io/download/plugins/latest/$plugin.hpi"
+    url="https://updates.jenkins.io/latest/$plugin.hpi"
 
     echo "Downloading plugin: $plugin from $url"
     curl --connect-timeout ${CURL_CONNECTION_TIMEOUT:-60} --retry ${CURL_RETRY:-10} --retry-delay ${CURL_RETRY_DELAY:-0} --retry-max-time ${CURL_RETRY_MAX_TIME:-120} -s -f -L "$url" -o "$jpi"
