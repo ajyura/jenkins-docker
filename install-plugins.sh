@@ -28,12 +28,12 @@ download() {
     lock="$(getLockFile "$plugin")"
 
     if [[ $ignoreLockFile ]] || mkdir "$lock" &>/dev/null; then
-        if ! doDownload "$plugin" "$version"; then
+        if ! doDownload "$plugin" "$version" "$plugin"; then
             # some plugin don't follow the rules about artifact ID
             # typically: docker-plugin
             originalPlugin="$plugin"
             plugin="${plugin}-plugin"
-            if ! doDownload "$plugin" "$version"; then
+            if ! doDownload "$plugin" "$version" "$plugin"; then
                 echo "Failed to download plugin: $originalPlugin or $plugin" >&2
                 echo "Not downloaded: ${originalPlugin}" >> "$FAILED"
                 return 1
@@ -54,6 +54,7 @@ doDownload() {
     local plugin version url jpi
     plugin="$1"
     version="$2"
+    plugin2="$3"
     jpi="$(getArchiveFilename "$plugin")"
 
     # If plugin already exists and is the same version do not download
@@ -64,7 +65,7 @@ doDownload() {
 
     JENKINS_UC_DOWNLOAD=${JENKINS_UC_DOWNLOAD:-"$JENKINS_UC/download"}
 
-    url="$JENKINS_UC_DOWNLOAD/plugins/$plugin/$version/$plugin.hpi"
+    url="$JENKINS_UC_DOWNLOAD/plugins/$plugin/$version/$plugin2.hpi"
 
     echo "Downloading plugin: $plugin from $url"
     curl --connect-timeout ${CURL_CONNECTION_TIMEOUT:-20} --retry ${CURL_RETRY:-5} --retry-delay ${CURL_RETRY_DELAY:-0} --retry-max-time ${CURL_RETRY_MAX_TIME:-60} -s -f -L "$url" -o "$jpi"
