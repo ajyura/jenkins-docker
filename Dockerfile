@@ -20,8 +20,8 @@ COPY config/init.groovy /var/lib/jenkins/
 COPY config/*.xml /usr/share/jenkins/ref/
 
 # first stab at passing through plugins and using install-plugins.sh to dl & install
-# RUN rm -f /usr/local/bin/install-plugins.sh
-# COPY install-plugins.sh /usr/local/bin/install-plugins.sh
+RUN rm -f /usr/local/bin/install-plugins.sh
+COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 # COPY dl_i_plugins.sh /tmp/dl_i_plugins.sh
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 CMD ["/usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')"]
