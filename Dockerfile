@@ -28,5 +28,5 @@ COPY install-plugins.sh /usr/local/bin/install-plugins_rev.sh
 COPY dl_i_plugins.sh /tmp/temp/dl_i_plugins.sh
 # RUN chmod +x /tmp/dj_i_plugins.sh
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-CMD ["sh", "-c", "chmod +x /tmp/temp/dl_i_plugins.sh ; /tmp/temp/dl_i_plugins.sh"]
+CMD ["sh", "-c", "chmod +x /tmp/temp/dl_i_plugins.sh ; /tmp/temp/dl_i_plugins.sh ; START=1"]
 # RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
