@@ -1,6 +1,11 @@
 #!/bin/bash -eu
 
 echo 'this is actually running the correct script'
+
+if [[ $START=1 ]]; then
+    exit 1
+fi
+
 # Resolve dependencies and download plugins given on the command line
 #
 # FROM jenkins
@@ -208,9 +213,5 @@ main() {
     
     START=1
 }
-
-if [[ $START=1 ]]; then
-    exit 
-fi
 
 main "$@"
