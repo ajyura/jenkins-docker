@@ -23,5 +23,6 @@ COPY config/*.xml /usr/share/jenkins/ref/
 RUN rm -f /usr/local/bin/install-plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-CMD chmod +x && /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')]
+CMD chmod +x /usr/local/bin/install-plugins.sh
+     && /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')]
 # RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
