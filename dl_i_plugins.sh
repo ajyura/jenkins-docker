@@ -9,5 +9,5 @@ if [[ "$START"=0 ]]; then
     chmod +x /tmp/temp/install-plugins.sh
 
     echo 'Running the custom DL & I plugins script'
-    /tmp//temp/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')
+    /tmp/temp/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')
 fi
