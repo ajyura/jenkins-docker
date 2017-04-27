@@ -2,6 +2,8 @@ FROM jenkins
 
 EXPOSE 443
 
+USER root
+
 # adding init.groovy file to modify content security policy
 COPY config/init.groovy /var/lib/jenkins/
 
@@ -18,7 +20,6 @@ COPY config/init.groovy /var/lib/jenkins/
 COPY config/*.xml /usr/share/jenkins/ref/
 
 # first stab at passing through plugins and using install-plugins.sh to dl & install
-RUN sudo su
 RUN rm -f /usr/local/bin/install-plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
