@@ -205,8 +205,8 @@ main() {
 
     echo "Cleaning up locks"
     rm -r "$REF_DIR"/*.lock
+    
+    START=1
 }
 
 main "$@"
-
-START=1
