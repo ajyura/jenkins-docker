@@ -11,3 +11,5 @@ if [[ "$START"=0 ]]; then
     echo 'Running the custom DL & I plugins script'
     /tmp/temp/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')
 fi
+
+START=1
