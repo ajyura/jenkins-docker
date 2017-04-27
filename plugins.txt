@@ -1,4 +1,4 @@
-active-directory:latest
+active-directory:2.4
 ec2:latest
 aws-java-sdk:latest
 android-emulator:latest
