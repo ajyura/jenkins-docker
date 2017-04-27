@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ START=0 ]]; then
-    echo 'This script has run ${START} times'
+if [[ "$START"=0 ]]; then
+    echo "$START"
     chmod +x /usr/local/bin/install-plugins_rev.sh
     # rm -f /usr/local/bin/install-plugins.sh
     mv /usr/local/bin/install-plugins_rev.sh /tmp/temp/install-plugins.sh
