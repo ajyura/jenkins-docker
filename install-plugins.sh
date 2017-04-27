@@ -1,5 +1,9 @@
 #!/bin/bash -eu
 
+if [[ "$START"=1 ]]; then
+    exit 1 
+fi
+
 # Resolve dependencies and download plugins given on the command line
 #
 # FROM jenkins
