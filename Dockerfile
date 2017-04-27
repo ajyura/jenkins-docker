@@ -5,7 +5,7 @@ EXPOSE 443
 USER root
 
 # initialize start variable to run CMD on 'docker run' only
-ARG START=0
+ENV START=0
 
 # adding init.groovy file to modify content security policy
 COPY config/init.groovy /var/lib/jenkins/
