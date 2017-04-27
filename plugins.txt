@@ -9,9 +9,9 @@ authentication-tokens:latest
 bitbucket:latest
 bouncycastle-api:latest
 branch-api:latest
-build-blocker-plugin:latest
-build-monitor-plugin:latest
-build-pipeline-plugin:latest
+build-blocker:latest
+build-monitor:latest
+build-pipeline:latest
 build-timeout:latest
 build-timestamp:latest
 build-with-parameters:latest
@@ -24,7 +24,7 @@ copyartifact:latest
 credentials-binding:latest
 credentials:latest
 dashboard-view:latest
-delivery-pipeline-plugin:latest
+delivery-pipeline:latest
 display-url-api:latest
 docker-commons:latest
 docker-workflow:latest
