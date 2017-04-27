@@ -182,9 +182,10 @@ main() {
         if [[ $plugin =~ .*:.* ]]; then
             version=$(versionFromPlugin "${plugin}")
             plugin="${plugin%%:*}"
+            plugin2="${plugin%%:*}"
         fi
 
-        download "$plugin" "$version" "$plugin" "true" &
+        download "$plugin" "$version" "$plugin2" "true" &
     done
     wait
 
