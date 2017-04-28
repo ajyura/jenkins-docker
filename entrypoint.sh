@@ -14,5 +14,7 @@ echo 'Running the entrypoint script'
 # execute custom isntall-plugins script & iterate through plugins list
 /tmp/temp/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')
 
-# run jdk in pid1 to keep container running
-/bin/bash -DFOREGROUND
+# run bash in pid1 to keep container running
+#/bin/bash -DFOREGROUND
+
+exec "$@"
