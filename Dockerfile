@@ -23,10 +23,13 @@ COPY config/init.groovy /var/lib/jenkins/
 COPY config/*.xml /usr/share/jenkins/ref/
 
 # first stab at passing through plugins and using install-plugins.sh to dl & install
-# RUN rm -f /usr/local/bin/install-plugins.sh
+
+# copy custom install-plugins script to usable directory
 COPY install-plugins.sh /usr/local/bin/install-plugins_rev.sh
-COPY dl_i_plugins.sh /tmp/temp/dl_i_plugins.sh
-# RUN chmod +x /tmp/dj_i_plugins.sh
+# copy entrypoint script to temp directory
+COPY entrypoint.sh /tmp/temp/entrypoint.sh
+# copy plugins list to usable directory
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-ENTRYPOINT ["sh", "-c", "chmod +x /tmp/temp/dl_i_plugins.sh ; /tmp/temp/dl_i_plugins.sh ; START=1"]
+# execute entrypoint script
+ENTRYPOINT ["sh", "-c", "chmod +x /tmp/temp/entrypoint.sh ; /tmp/temp/entrypoint.sh ; START=1"]
 # RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
