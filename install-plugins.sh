@@ -166,11 +166,15 @@ main() {
     local plugin version
 
     mkdir -p "$REF_DIR" || exit 1
-
+    
     # Create lockfile manually before first run to make sure any explicit version set is used.
     echo "Creating initial locks..."
     for plugin in "$@"; do
-        mkdir "$(getLockFile "${plugin%%:*}")"
+        if [[-e "$(getLockFile "${plugin%%:*}")"]]; then
+            return
+        else 
+            mkdir "$(getLockFile "${plugin%%:*}")"
+        fi
     done
 
     echo "Analyzing war..."
