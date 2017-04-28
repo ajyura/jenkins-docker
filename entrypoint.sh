@@ -17,4 +17,4 @@ echo 'Running the entrypoint script'
 # run bash in pid1 to keep container running
 #/bin/bash -DFOREGROUND
 
-exec "$@"
+tail -f /dev/null
