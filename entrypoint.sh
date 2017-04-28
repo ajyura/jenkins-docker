@@ -15,4 +15,4 @@ echo 'Running the entrypoint script'
 /tmp/temp/install-plugins.sh $(cat /usr/share/jenkins/ref/plugins.txt | tr '\n' ' ')
 
 # run jdk in pid1 to keep container running
-/usr/lib/jvm/java-8-openjdk-amd64 -DFOREGROUND
+/usr/lib/jvm/java-8-openjdk-amd64/java -DFOREGROUND
